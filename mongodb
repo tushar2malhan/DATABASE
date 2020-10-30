@@ -1,0 +1,52 @@
+                         MONGO DB
+
+is a nosql database -which is an open source 
+stores data  json -type document format [java script language]
+have no relational data  = it is very flexible enough - which can mix data of tables
+(can give extra field or column to a particular record - name  to all , age extra for one record)
+
+
+MONGO DB    =  RDBMS in sql
+Collections = tables in    SQL	
+Documents   = row records of the table in SQL [which is key/value data]
+field       = column record data
+table join  = Embedded documents
+
+               SYNTAX
+
+first:"ajay"
+course:["mca","bba"]        #ARRAY[]
+address:{
+         street:"XYZ",
+         pincode:"110044"    #OBJECT{}
+        }   
+contacts:[
+{name:"ajay",class:"mca"},   #ARRAY OF OBJECT
+{name:"ram",class:"mca"}
+
+]
+
+
+
+show dbs            - all databases made
+use databasename    - connect to database [creates new database if not present]
+show collections    - checks tables
+
+db.createCollection("student");                   - create table in database school
+db.student.insert({first:"tushar",last:"malhan"});- create a record in collection (table of student) 
+db.student.find();                                - shows the records created in student table                                            = ({});
+db.student.find().pretty();                       - shows the records eye-catchy
+db.student.insert([{first:"jimmy",last:"malhan"},{first:"goldy",last:"malhan"}]); - create multiple records at once with ARRAY OF OBJECT = ([{}]);
+
+db.student.update({first:"tushar"},{$set:{last:"bharti"}}); - it will update the last name of all records having name as tushar 
+
+db.student.update({first:"tushar"},{$set:{gender:"male"}}); - add extra field to the recors                                    (here {$set:{} = updates and set the orginal value});   
+
+db.student.update({first:"jimmy"},{$inc:{age:29}});         - it adds the field in documents and thus updates it as well       (here {$inc:{} = increment the values});
+
+db.student.update({first:"jimmy"},{$unset:{age:1}});        - it removes the field from the record                             (here {first:"jimmy"},{$unset:{age:1}});  
+
+db.student.update({first:"tushar"},{$rename:{gender:"sex"}});- rename the field name where first ="tushar"                     (here {first:"tushar"},{$rename:{the column name }});                                                                  
+
+db.student.remove({first:"goldy"});                         - it removes the complete document from the collections student    (here {first:"tushar"}- delets where first name = tushar
+    
