@@ -62,8 +62,8 @@ JOIN  = Combines two column from two tables and displays as a single column with
 COUNT(field_name) = counts values only (if there is NULL in record - it won't count it same)
 COUNT(*)          = counts all records (even if there is NULL IN RECORDS - it will count it)
 
-I
-  WITH RESULT AS 
+I     USE OF CTE [ COMMON TABLE EXPRESSION ]  > CREATING A SUB-QUERY FROM THE MAIN QUERY T
+  WITH RESULT AS  
 
    (   SELECT  SALARY , DENSE_RANK () OVER (ORDER BY SALARY DESC) AS column_for_dense                = dense_rank provides row_num for each distinct value from the record
        from employees; 
